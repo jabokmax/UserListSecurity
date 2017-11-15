@@ -1,0 +1,22 @@
+<div th:fragment='header'>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/user/user}">User</a></li>
+                    <li><a th:href="@{/admin/user}">Admin</a></li>
+                    <li><a th:href="@{/list}">User list</a></li>
+                </ul>
+                <div class="navbar-text navbar-right">
+                    <form sec:authorize="isAuthenticated()" id="logout" th:action="@{/logout}" method="post">
+                        <span sec:authentication="principal.authorities"></span>
+                        | <span sec:authentication="name">Login user</span>
+                        | <a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;">Logout</a>
+                        |
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,29 @@
+
+<html
+        layout:decorator="layout/main"
+>
+<head>
+    <title>Security Passed</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div  class="container">
+        <table class="table table-striped">
+            <tr>
+                <th class="thId">Id</th>
+                <th class="thName">Name</th>
+            </tr>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.email}"></td>
+            </tr>
+        </table>
+    </div>
+    <div th:include="/common/pagination :: pagination"></div>
+</div>
+
+
+
+
+</body>
+</html>
