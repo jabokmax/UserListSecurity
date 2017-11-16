@@ -10,13 +10,13 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-public class AccountUserDetails implements UserDetails {
+public class MyAccountUserDetailsImpl implements UserDetails {
 
     private static final long serialVersionUID = 1L;
 
     private User user;
 
-    public AccountUserDetails(User user) {
+    public MyAccountUserDetailsImpl(User user) {
         this.user = user;
         System.out.println(this.user.getEmail());
     }

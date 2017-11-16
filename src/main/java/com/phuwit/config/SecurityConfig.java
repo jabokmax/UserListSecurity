@@ -1,6 +1,6 @@
 package com.phuwit.config;
 
-import com.phuwit.domain.service.UserAuthenticationService;
+import com.phuwit.domain.service.MyUserAuthenticationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Autowired
-    private UserAuthenticationService userAuthService;
+    private MyUserAuthenticationServiceImpl userAuthService;
 
     @Autowired
     public void configureUserAuth (AuthenticationManagerBuilder auth) throws Exception {

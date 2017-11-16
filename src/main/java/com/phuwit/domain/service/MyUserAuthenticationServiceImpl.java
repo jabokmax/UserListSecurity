@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-public class UserAuthenticationService implements UserAccountService, UserDetailsService {
+public class MyUserAuthenticationServiceImpl implements UserAccountService, UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
@@ -36,7 +36,7 @@ public class UserAuthenticationService implements UserAccountService, UserDetail
             throw new UsernameNotFoundException(username);
         }
 
-        return new AccountUserDetails(user);
+        return new MyAccountUserDetailsImpl(user);
     }*/
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
