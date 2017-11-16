@@ -9,7 +9,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -41,8 +43,20 @@ public class UserController {
         model.addAttribute("page", page);
         model.addAttribute("users", page.getContent());
         return "user/list";
-
-
-
     }
+
+    @Secured("ROLE_ADMIN")
+    @RequestMapping(value = "/user/remove/{id}", method = RequestMethod.GET)
+    public String removeUser(@PathVariable("id")int user_id){
+        userService.removeUser(user_id);
+        return "redirect:/list";
+    }
+
+    @Secured("ROLE_ADMIN")
+    @RequestMapping(value = "/user/edit/{id}", method = RequestMethod.GET)
+    public String editUser(@PathVariable("id")int user_id){
+        User user = userService.findOne(user_id);
+        return "redirect:/list";
+    }
+
 }
