@@ -1,5 +1,6 @@
 package com.phuwit.domain.service;
 
+import com.phuwit.app.user.UserForm;
 import com.phuwit.domain.entity.User;
 import com.phuwit.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +27,16 @@ public class UserService {
         return userRepository.findAll(pageable);
     }
 
+    public void update(UserForm userForm) {
+        System.out.println("find id");
+        User user = findOne(userForm.getId());
+
+        System.out.println("set name");
+        user.setName(userForm.getName());
+
+        System.out.println("Save");
+        userRepository.save(user);
+
+        System.out.println("Done");
+    }
 }
